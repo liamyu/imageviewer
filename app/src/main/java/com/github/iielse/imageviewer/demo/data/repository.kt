@@ -13,7 +13,7 @@ class TestRepository {
     private val dataSourceFactory = object : DataSource.Factory<Int, Cell>() {
         override fun create() = object : XPageKeyedDataSource() {
             override fun totalCount() = state.list.size
-            override fun loadRange(start: Int, count: Int): List<Cell?> {
+            override fun loadRange(start: Int, count: Int): List<Cell> {
                 return state.list.mapToCell(start, count) {
                     Cell(ItemType.TestData, it, state.data[it])
                 }

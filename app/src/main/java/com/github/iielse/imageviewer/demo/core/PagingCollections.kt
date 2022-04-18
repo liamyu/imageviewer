@@ -98,7 +98,7 @@ fun <T> List<T>.safelySubList(
     return this.subList(fromIndex, toIndex)
 }
 
-fun <Key, Value> DataSource.Factory<Key, Value>.toLiveData(
+fun <Key: Any, Value: Any> DataSource.Factory<Key, Value>.toLiveData(
     cellId: (Value) -> String,
     requestMore: () -> Unit
 ): LiveData<PagedList<Value>> {
